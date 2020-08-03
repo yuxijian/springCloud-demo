@@ -1,0 +1,25 @@
+server:
+  port: 58672
+
+spring:
+  application:
+    name: eureka-client
+  cloud:
+    config:
+      profile: test
+      discovery:
+        service-id: config-server
+        enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:58670/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+

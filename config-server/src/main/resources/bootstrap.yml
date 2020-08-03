@@ -1,0 +1,29 @@
+server:
+  port: 6000
+
+###服务注册到eureka地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:58670/eureka/
+spring:
+  application:
+    ####注册中心应用名称
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          ###git环境地址
+          uri: https://github.com/yuxijian/springCloud-conifgCenter.git
+          ####搜索目录
+          search-paths:
+            - config
+      ####读取分支
+      label: master
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
